@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Destination</title>
+    </head>
+    <body>
+        <h1>{{ users.destination }}</h1>
+            <form action='/destination' method='post'>
+            {% csrf_token %}
+                <p>Planned By:{{ trip.name}}</p>
+                <p>Description:{{ trip.description }}</p>
+                <p>Travel Date From:{{ trip.start }}</p>
+                <p>Travel Date To:{{ trip.end }}</p>
+            </form>
+        <h1>Other user's joining this trip:</h1>
+            {% for user in users %}
+                <p>{{ users.name }}</p>
+            {% endfor %}
+            <a href="/first_app/dashboard">Home</a>
+            <br>
+            <a href="/first_app/index">Log Out</a>
+    </body>
+</html>
